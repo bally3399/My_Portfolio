@@ -1,9 +1,13 @@
+// @ts-ignore
 import * as React from "react"
+// @ts-ignore
 import { Slot } from "@radix-ui/react-slot"
+// @ts-ignore
 import { ChevronRight, MoreHorizontal } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+// @ts-ignore
 const Breadcrumb = React.forwardRef<
   HTMLElement,
   React.ComponentPropsWithoutRef<"nav"> & {

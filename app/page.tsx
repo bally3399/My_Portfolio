@@ -6,7 +6,6 @@ import Image from "next/image"
 import Link from "next/link"
 import projectImage from "../components/asset/project.png"
 import MyPics from "../components/asset/mypics.jpg"
-
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -216,7 +215,8 @@ export default function Portfolio() {
                 </div>
               </div>
 
-              <div className="flex justify-center items-start ">
+              <div className="flex justify-center items-start
+              ">
                 <div
                     className="w-80 h-96 rounded-2xl border-2 border-yellow-400 overflow-hidden bg-gradient-to-br from-orange-300 to-orange-400">
                   <Image

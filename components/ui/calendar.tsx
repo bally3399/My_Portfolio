@@ -1,6 +1,8 @@
 "use client"
 
+// @ts-ignore
 import * as React from "react"
+// @ts-ignore
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { DayPicker } from "react-day-picker"
 
