@@ -136,7 +136,6 @@ export default function Portfolio() {
 
   return (
       <div className="min-h-screen bg-black text-white">
-        {/* Header */}
         <header className="header">
           <h1 className="logo">Bimbim.</h1>
           <a href="/BimsCv.pdf" target="_blank" rel="noopener noreferrer" className="cv-button">
@@ -161,14 +160,10 @@ export default function Portfolio() {
           </a>
         </header>
 
-        {/* Main Content */}
         <main className="main">
           <div className="container">
-            {/* Hero Section */}
             <div id="home" className="hero-section">
-              {/* Left Column */}
               <div className="hero-content">
-                {/* Main Heading */}
                 <div className="hero-text">
                   <h2 className="hero-title">
                     Software
@@ -182,7 +177,6 @@ export default function Portfolio() {
                   </p>
                 </div>
 
-                {/* Two Column Description */}
                 <div className="hero-stats">
                   <div>
                     <p className="stat-text">
@@ -197,7 +191,6 @@ export default function Portfolio() {
                 </div>
               </div>
 
-              {/* Right Column - Profile Image */}
               <div className="hero-image">
                 <div className="profile-image">
                   <Image
@@ -212,7 +205,6 @@ export default function Portfolio() {
               </div>
             </div>
 
-            {/* Project Categories */}
             <section className="categories-section">
               <div className="categories-container">
                 <h2 className="categories-title">Project Categories</h2>
@@ -229,9 +221,7 @@ export default function Portfolio() {
               </div>
             </section>
 
-            {/* Bottom Sections */}
             <div className="bottom-sections">
-              {/* Development Section */}
               <div className="section">
                 <h3 className="section-title">Development</h3>
                 <p className="section-description">
@@ -242,7 +232,6 @@ export default function Portfolio() {
                 </p>
               </div>
 
-              {/* Engineering Section */}
               <div className="section">
                 <h3 className="section-title">Engineering</h3>
                 <p className="section-description">
@@ -254,7 +243,6 @@ export default function Portfolio() {
               </div>
             </div>
 
-            {/* Skills Section */}
             <section id="skills" className="skills-section">
               <div className="skills-container">
                 <h2 className="skills-title">Skills & Technologies</h2>
