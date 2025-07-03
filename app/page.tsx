@@ -4,14 +4,8 @@ import { useState, useEffect } from "react"
 import { Github, Linkedin, Mail, Globe, Code, Database, Layers } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import projectImage from "../components/asset/project.png"
-import MyPics from "../components/asset/mypics.jpg"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 
 export default function Portfolio() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
 
   useEffect(() => {
@@ -36,14 +30,6 @@ export default function Portfolio() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
-    setIsMenuOpen(false)
-  }
 
   const skills = [
     "JavaScript",
@@ -72,7 +58,7 @@ export default function Portfolio() {
       technologies: ["React", "Spring Boot", "MongoDB", "JWT"],
       github: "https://quagga-inky.vercel.app/",
       live: "https://quagga-inky.vercel.app/",
-      image: projectImage,
+      image: "/project.png",
       category: "Full-Stack",
     },
     {
@@ -82,7 +68,7 @@ export default function Portfolio() {
       technologies: ["React", "Spring Boot", "MySQL", "Spring Data JPA"],
       github: "https://hotel-booking-two-sage.vercel.app/",
       live: "https://hotel-booking-two-sage.vercel.app/",
-      image: projectImage,
+      image: "/project.png",
       category: "Full-Stack",
     },
     {
@@ -92,7 +78,7 @@ export default function Portfolio() {
       technologies: ["React", "Spring Boot", "MongoDB", "Material UI", "Tailwind CSS"],
       github: "https://admin-dashboard-beige-xi-12.vercel.app/",
       live: "https://admin-dashboard-beige-xi-12.vercel.app/",
-      image: projectImage,
+      image: "/project.png",
       category: "Full-Stack",
     },
     {
@@ -102,7 +88,7 @@ export default function Portfolio() {
       technologies: ["Java", "Spring Boot", "MySQL", "REST APIs"],
       github: "https://github.com/bally3399/EventBookingApp.git",
       live: "#",
-      image: projectImage,
+      image: "/project.png",
       category: "Backend",
     },
     {
@@ -112,7 +98,7 @@ export default function Portfolio() {
       technologies: ["Java", "Spring Boot", "MySQL", "Security"],
       github: "https://github.com/bally3399/ElectionManagementSystem.git",
       live: "#",
-      image: projectImage,
+      image: "/project.png",
       category: "Backend",
     },
     {
@@ -122,7 +108,7 @@ export default function Portfolio() {
       technologies: ["React", "JavaScript", "CSS", "API Integration"],
       github: "https://github.com/bally3399/movieApp.git",
       live: "#",
-      image: projectImage,
+      image: "/project.png",
       category: "Frontend",
     },
   ]
@@ -142,7 +128,7 @@ export default function Portfolio() {
     },
     {
       title: "Frontend Projects",
-      count: 4,
+      count: 2,
       icon: <Code size={24} />,
       description: "Interactive user interfaces and web applications",
     },
@@ -151,14 +137,9 @@ export default function Portfolio() {
   return (
       <div className="min-h-screen bg-black text-white">
         {/* Header */}
-        <header className="px-8 py-6 flex justify-between items-center">
-          <h1 className="text-xl font-medium">Bimbim.</h1>
-          <a
-              href="public/BimsCv.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-400 text-black rounded-lg hover:bg-yellow-500 transition-colors font-medium"
-          >
+        <header className="header">
+          <h1 className="logo">Bimbim.</h1>
+          <a href="/BimsCv.pdf" target="_blank" rel="noopener noreferrer" className="cv-button">
             View CV
             <svg
                 className="w-4 h-4"
@@ -180,80 +161,80 @@ export default function Portfolio() {
           </a>
         </header>
 
-        <main className="px-8 py-12">
-          <div className="max-w-7xl mx-auto">
+        {/* Main Content */}
+        <main className="main">
+          <div className="container">
             {/* Hero Section */}
-            <div id="home" className="grid lg:grid-cols-2 gap-16 mb-32">
+            <div id="home" className="hero-section">
               {/* Left Column */}
-              <div className="space-y-8">
+              <div className="hero-content">
                 {/* Main Heading */}
-                <div className="space-y-6">
-                  <h2 className="text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                <div className="hero-text">
+                  <h2 className="hero-title">
                     Software
-                    <br/>
+                    <br />
                     Engineer.
                   </h2>
 
-                  <p className="text-yellow-400 text-lg mb-12 max-w-md">
-                    I'm a software engineer based in Lagos, Nigeria, skilled in frontend and backend development. I
-                    build
+                  <p className="hero-description">
+                    I'm a software engineer based in Lagos, Nigeria, skilled in frontend and backend development. I build
                     innovative solutions that ensure smooth and impactful digital experiences.
                   </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-8 text-sm leading-relaxed">
+                {/* Two Column Description */}
+                <div className="hero-stats">
                   <div>
-                    <p className="text-gray-300">
+                    <p className="stat-text">
                       Highly skilled at progressive enhancement, modern web technologies & full-stack development.
                     </p>
                   </div>
                   <div>
-                    <p className="text-gray-300">
+                    <p className="stat-text">
                       Over two years of experience building innovative products and solutions across various domains.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="flex justify-center items-start
-              ">
-                <div
-                    className="w-80 h-96 rounded-2xl border-2 border-yellow-400 overflow-hidden bg-gradient-to-br from-orange-300 to-orange-400">
+              {/* Right Column - Profile Image */}
+              <div className="hero-image">
+                <div className="profile-image">
                   <Image
-                      src={MyPics || "/placeholder.svg"}
+                      src="/mypics.jpg"
                       alt="Baliqis Sulaiman Mosunmola"
                       width={320}
                       height={384}
                       className="w-full h-full object-cover"
-                      style={{objectPosition: "center top"}}
+                      style={{ objectPosition: "center top" }}
                   />
                 </div>
               </div>
             </div>
 
-            <section className="py-20">
-              <div className="max-w-4xl mx-auto">
-                <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">Project Categories</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Project Categories */}
+            <section className="categories-section">
+              <div className="categories-container">
+                <h2 className="categories-title">Project Categories</h2>
+                <div className="categories-grid">
                   {projectCategories.map((category, index) => (
-                      <div
-                          key={index}
-                          className="bg-gray-900 border border-gray-800 rounded-lg p-6 text-center hover:transform hover:-translate-y-2 transition-all duration-300"
-                      >
-                        <div className="text-yellow-400 mb-4 flex justify-center">{category.icon}</div>
-                        <h3 className="text-xl font-semibold mb-2">{category.title}</h3>
-                        <p className="text-yellow-400 font-medium mb-2">{category.count} Projects</p>
-                        <p className="text-gray-300 text-sm">{category.description}</p>
+                      <div key={index} className="category-card">
+                        <div className="category-icon">{category.icon}</div>
+                        <h3 className="category-title">{category.title}</h3>
+                        <p className="category-count">{category.count} Projects</p>
+                        <p className="category-description">{category.description}</p>
                       </div>
                   ))}
                 </div>
               </div>
             </section>
 
-            <div className="grid lg:grid-cols-2 gap-16 pt-16">
-              <div className="space-y-6">
-                <h3 className="text-4xl font-bold mb-6">Development</h3>
-                <p className="text-yellow-400 text-sm leading-relaxed">
+            {/* Bottom Sections */}
+            <div className="bottom-sections">
+              {/* Development Section */}
+              <div className="section">
+                <h3 className="section-title">Development</h3>
+                <p className="section-description">
                   My journey into coding began in 2023, driven by a deep curiosity about how software powers our digital
                   world. I specialize in both frontend and backend development, creating efficient, user-friendly
                   applications. I follow best practices like test-driven development, ensuring clean and maintainable code
@@ -261,9 +242,10 @@ export default function Portfolio() {
                 </p>
               </div>
 
-              <div className="space-y-6">
-                <h3 className="text-4xl font-bold mb-6">Engineering</h3>
-                <p className="text-yellow-400 text-sm leading-relaxed">
+              {/* Engineering Section */}
+              <div className="section">
+                <h3 className="section-title">Engineering</h3>
+                <p className="section-description">
                   I have hands-on experience with modern JavaScript frameworks and tools, building scalable applications
                   with React, Spring Boot, and various databases. I thrive in collaborative environments, valuing teamwork
                   and knowledge-sharing to deliver impactful solutions that are designed for growth – performance and user
@@ -272,39 +254,29 @@ export default function Portfolio() {
               </div>
             </div>
 
-            <section id="skills" className="py-20">
-              <div className="max-w-4xl mx-auto">
-                <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">Skills & Technologies</h2>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            {/* Skills Section */}
+            <section id="skills" className="skills-section">
+              <div className="skills-container">
+                <h2 className="skills-title">Skills & Technologies</h2>
+                <div className="skills-grid">
                   {skills.map((skill, index) => (
-                      <div
-                          key={skill}
-                          className="text-center p-4 rounded-lg bg-gray-900 hover:bg-gray-800 transition-colors border border-gray-800"
-                          style={{ animationDelay: `${index * 0.1}s` }}
-                      >
-                        <Badge
-                            variant="secondary"
-                            className="text-sm bg-yellow-400/20 text-yellow-400 border-yellow-400/30"
-                        >
-                          {skill}
-                        </Badge>
+                      <div key={skill} className="skill-item">
+                        <span className="skill-badge">{skill}</span>
                       </div>
                   ))}
                 </div>
               </div>
             </section>
 
-            <section id="projects" className="py-20">
-              <div className="max-w-6xl mx-auto">
-                <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">Featured Projects</h2>
-                <p className="text-center text-yellow-400 text-lg mb-12">What I Have Built</p>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Projects Section */}
+            <section id="projects" className="projects-section">
+              <div className="projects-container">
+                <h2 className="projects-title">Featured Projects</h2>
+                <p className="projects-subtitle">What I Have Built</p>
+                <div className="projects-grid">
                   {featuredProjects.map((project, index) => (
-                      <Card
-                          key={project.title}
-                          className="bg-gray-900 border-gray-800 overflow-hidden hover:shadow-lg hover:transform hover:-translate-y-2 transition-all duration-300"
-                      >
-                        <div className="relative">
+                      <div key={project.title} className="project-card">
+                        <div className="project-image">
                           <Image
                               src={project.image || "/placeholder.svg"}
                               alt={project.title}
@@ -312,43 +284,38 @@ export default function Portfolio() {
                               height={200}
                               className="w-full h-48 object-cover"
                           />
-                          <div className="absolute top-2 right-2 bg-yellow-400 text-black px-2 py-1 rounded text-xs font-medium">
-                            {project.category}
-                          </div>
+                          <div className="project-category">{project.category}</div>
                         </div>
-                        <CardHeader>
-                          <CardTitle className="flex items-center justify-between text-white">
-                            <span className="text-sm font-semibold">{project.title}</span>
-                            <div className="flex space-x-2">
-                              <Link href={project.github} target="_blank" className="text-gray-300 hover:text-yellow-400">
+                        <div className="project-content">
+                          <div className="project-header">
+                            <h3 className="project-title">{project.title}</h3>
+                            <div className="project-links">
+                              <Link href={project.github} target="_blank" className="project-link">
                                 <Github className="h-4 w-4" />
                               </Link>
                               {project.live !== "#" && (
-                                  <Link href={project.live} target="_blank" className="text-gray-300 hover:text-yellow-400">
+                                  <Link href={project.live} target="_blank" className="project-link">
                                     <Globe className="h-4 w-4" />
                                   </Link>
                               )}
                             </div>
-                          </CardTitle>
-                          <CardDescription className="text-gray-300 text-xs leading-relaxed">
-                            {project.description}
-                          </CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                          <div className="flex flex-wrap gap-1">
+                          </div>
+                          <p className="project-description">{project.description}</p>
+                          <div className="project-technologies">
                             {project.technologies.map((tech) => (
-                                <Badge key={tech} variant="outline" className="text-xs text-yellow-400 border-yellow-400/30">
-                                  {tech}
-                                </Badge>
+                                <span key={tech} className="tech-badge">
+                            {tech}
+                          </span>
                             ))}
                           </div>
-                        </CardContent>
-                      </Card>
+                        </div>
+                      </div>
                   ))}
                 </div>
 
-                <div className="mt-12 text-center p-6 bg-gray-900 rounded-lg border border-gray-800">
-                  <p className="text-gray-300 mb-4 leading-relaxed">
+                {/* Additional Projects Note */}
+                <div className="more-projects">
+                  <p className="more-projects-text">
                     + More projects including Data Structures & Algorithms implementations, Python OOP applications, Todo
                     App, and additional backend systems available on GitHub
                   </p>
@@ -356,7 +323,7 @@ export default function Portfolio() {
                       href="https://github.com/bally3399"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-yellow-400 hover:text-yellow-300 font-medium"
+                      className="github-link"
                   >
                     <Github size={20} />
                     View All Projects on GitHub
@@ -365,37 +332,33 @@ export default function Portfolio() {
               </div>
             </section>
 
-            <section id="contact" className="py-20">
-              <div className="max-w-4xl mx-auto text-center">
-                <h2 className="text-3xl sm:text-4xl font-bold mb-8">Get In Touch</h2>
-                <p className="text-lg mb-12 max-w-2xl mx-auto text-gray-300">
+            {/* Contact Section */}
+            <section id="contact" className="contact-section">
+              <div className="contact-container">
+                <h2 className="contact-title">Get In Touch</h2>
+                <p className="contact-description">
                   I'm always interested in hearing about new opportunities and interesting projects. Let's connect and
                   build something amazing together!
                 </p>
-                <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                  <Button size="lg" className="bg-yellow-400 hover:bg-yellow-500 text-black">
-                    <a href="mailto:sulaimabaliqis@gmail.com" className="flex items-center gap-2">
-                      <Mail className="h-4 w-4" />
-                      Write me
-                    </a>
-                  </Button>
-                  <Button
-                      variant="outline"
-                      size="lg"
-                      className="border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black bg-transparent"
-                  >
-                    <Linkedin className="mr-2 h-4 w-4" />
+                <div className="contact-buttons">
+                  <a href="mailto:sulaimabaliqis@gmail.com" className="contact-btn primary">
+                    <Mail className="h-4 w-4" />
+                    Write me
+                  </a>
+                  <a href="#" className="contact-btn secondary">
+                    <Linkedin className="h-4 w-4" />
                     LinkedIn
-                  </Button>
+                  </a>
                 </div>
               </div>
             </section>
           </div>
         </main>
 
-        <footer className="py-8 px-8 border-t border-gray-800">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-gray-300">© 2024 Baliqis Mosunmola Sulaiman</p>
+        {/* Footer */}
+        <footer className="footer">
+          <div className="footer-container">
+            <p className="footer-text">© 2024 Baliqis Mosunmola Sulaiman</p>
           </div>
         </footer>
       </div>
